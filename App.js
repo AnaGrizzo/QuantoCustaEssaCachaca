@@ -74,7 +74,7 @@ export default class App extends React.Component {
           />
         </Card>
         <Text>
-          Quanto custa essa cachaça?
+          Quanto é essa cachaça?
         </Text>
         <Card>
           <TextInput
