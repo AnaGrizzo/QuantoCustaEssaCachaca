@@ -12,6 +12,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      nome: undefined,
       bebidaMl: undefined,
       bebidaCusto: undefined,
       litroCusto: undefined,
@@ -19,7 +20,8 @@ export default class App extends React.Component {
 
     this.litroCustoFormatado.bind(this)
   }
- 
+
+  handleNomeDaCachacaChanged = text => this.setState({nome: text})
 
   handleQuantosMlChanged = (text) => this.setState({bebidaMl: text}, this.updateLitroCusto)
 
@@ -30,7 +32,7 @@ export default class App extends React.Component {
     if (!bebidaCusto || !this.state.bebidaMl) {
       return
     }
-    
+
     this.setState({
       litroCusto: ((bebidaCusto * 1000) / this.state.bebidaMl)
     })
@@ -40,32 +42,41 @@ export default class App extends React.Component {
 
     // Retorna o custo do litro com somente N casas decimais à direita
     return 'R$' + parseFloat(litroCusto).toFixed(2);
-    
+
   }
 
   render() {
     const {litroCusto} = this.state
-    
+
     return (
       <View style={styles.container}>
         <Text style={styles.paragraph}>
           Quanto custa essa cachaça?!
         </Text>
-        
+        <Text>
+          Qual é o nome dessa cachaça?
+        </Text>
+        <Card>
+          <TextInput
+            style={{height: 40}}
+            placeholder="Nome da cachaça"
+            onChangeText={this.handleNomeDaCachacaChanged}
+          />
+        </Card>
         <Text>
           Quantos ml tem essa cachaça?
-        </Text>        
+        </Text>
         <Card>
           <TextInput
             style={{height: 40}}
             placeholder="Quantos ML tem?"
             onChangeText={this.handleQuantosMlChanged}
-          />          
+          />
         </Card>
         <Text>
           Quanto custa essa cachaça?
-        </Text>        
-        <Card>  
+        </Text>
+        <Card>
           <TextInput
             style={{height: 40}}
             placeholder="Quanto custa?"
@@ -74,7 +85,7 @@ export default class App extends React.Component {
         </Card>
         <Text>
           O preço do litro dessa cachaça é:
-        </Text>     
+        </Text>
         <Card>
           <Text style={{padding: 10, fontSize: 42}}>
             {this.litroCustoFormatado(litroCusto, 2)}

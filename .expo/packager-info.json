@@ -1,8 +1,9 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 24111,
+  "packagerPid": 4456,
   "expoServerNgrokUrl": "https://re-5uw.anagrizzo.quanto-custa-essa-cachaca.exp.direct",
   "packagerNgrokUrl": "https://packager.re-5uw.anagrizzo.quanto-custa-essa-cachaca.exp.direct",
-  "ngrokPid": 24175
+  "ngrokPid": 4768,
+  "devToolsPort": 19002
 }
