@@ -16,9 +16,8 @@ export default class App extends React.Component {
       bebidaMl: undefined,
       bebidaCusto: undefined,
       litroCusto: undefined,
+      listaCachacas: ['Brahma']
     };
-
-    this.litroCustoFormatado.bind(this)
   }
 
   handleNomeDaCachacaChanged = text => this.setState({nome: text})
@@ -38,10 +37,11 @@ export default class App extends React.Component {
     })
   }
 
-  litroCustoFormatado(litroCusto, numeroDeCasas) {
+  litroCustoFormatado = (litroCusto, numeroDeCasas) => {
 
-    // Retorna o custo do litro com somente N casas decimais à direita
-    return 'R$' + parseFloat(litroCusto).toFixed(2);
+    // Retorna lista com o nome e custo do litro com somente N casas decimais à direita
+    // return 'R$' + parseFloat(litroCusto).toFixed(2);
+    return this.state.listaCachacas;
 
   }
 
@@ -83,8 +83,9 @@ export default class App extends React.Component {
             onChangeText={this.handleQuantoCustaChanged}
           />
         </Card>
+        {/* // Fazer o campo do preço receber vários valores e mostrar todos como uma lista */}
         <Text>
-          O preço do litro dessa cachaça é:
+          O(s) preço(s) por litro dessa(s) cachaça(s) é(são):
         </Text>
         <Card>
           <Text style={{padding: 10, fontSize: 42}}>
