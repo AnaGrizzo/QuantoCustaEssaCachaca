@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, TextInput } from 'react-native';
 import { Constants } from 'expo';
+import { Button } from 'react-native';
 
 // You can import from local files
 import AssetExample from './components/AssetExample';
@@ -16,7 +17,8 @@ export default class App extends React.Component {
       bebidaMl: undefined,
       bebidaCusto: undefined,
       litroCusto: undefined,
-      listaCachacas: ['Brahma']
+      listaCachacas: ['Brahma: R$ 123,09'],
+      nomeComPreco: undefined
     };
   }
 
@@ -27,22 +29,32 @@ export default class App extends React.Component {
   handleQuantoCustaChanged = (text) => this.setState({bebidaCusto: text}, this.updateLitroCusto)
 
   updateLitroCusto = () => {
-    const {bebidaCusto} = this.state
-    if (!bebidaCusto || !this.state.bebidaMl) {
+    if (!this.state.bebidaCusto || !this.state.bebidaMl || !this.state.nome) {
       return
     }
 
     this.setState({
-      litroCusto: ((bebidaCusto * 1000) / this.state.bebidaMl)
+      litroCusto: ((this.state.bebidaCusto * 1000) / this.state.bebidaMl)
     })
   }
 
-  litroCustoFormatado = (litroCusto, numeroDeCasas) => {
-
+  litroCustoFormatado = () => {
     // Retorna lista com o nome e custo do litro com somente N casas decimais à direita
-    // return 'R$' + parseFloat(litroCusto).toFixed(2);
-    return this.state.listaCachacas;
+    return 'R$ ' + parseFloat(this.state.litroCusto).toFixed(2);
+  }
 
+  onPressCalcular = () => {
+    // junta o nome e o litroCustoFormatado na listaCachaca
+    // coisa = nome + preço
+    // coloca coisa no fim da lista
+    // A = nome
+    console.log('Nome: ', this.state.nome)
+    // B = litroCustoFormatado
+    console.log('LitroCustoFormatado: ', this.litroCustoFormatado())
+    // C = A + B = adicionar na listaCachaca
+    // junta o nome e o litroCustoFormatado e adiciona na listaCachaca
+    // imprime essa lista no campo do preço/litro (um por linha)
+    // console.log(nome + litroCusto)
   }
 
   render() {
@@ -83,13 +95,18 @@ export default class App extends React.Component {
             onChangeText={this.handleQuantoCustaChanged}
           />
         </Card>
+        <Button
+          onPress={this.onPressCalcular}
+          title="Calcular!"
+          color="#841584"
+        />
         {/* // Fazer o campo do preço receber vários valores e mostrar todos como uma lista */}
         <Text>
           O(s) preço(s) por litro dessa(s) cachaça(s) é(são):
         </Text>
         <Card>
           <Text style={{padding: 10, fontSize: 42}}>
-            {this.litroCustoFormatado(litroCusto, 2)}
+            LALALALLA
           </Text>
         </Card>
 
