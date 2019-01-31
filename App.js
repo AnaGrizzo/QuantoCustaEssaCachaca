@@ -44,17 +44,17 @@ export default class App extends React.Component {
   }
 
   onPressCalcular = () => {
-    // junta o nome e o litroCustoFormatado na listaCachaca
-    // coisa = nome + preço
-    // coloca coisa no fim da lista
-    // A = nome
+    // junta o nome e o litroCustoFormatado
+
+    let coisa = (this.state.nome + this.litroCustoFormatado())
+    console.log('plzgod:', coisa)
+
     console.log('Nome: ', this.state.nome)
-    // B = litroCustoFormatado
+
     console.log('LitroCustoFormatado: ', this.litroCustoFormatado())
-    // C = A + B = adicionar na listaCachaca
-    // junta o nome e o litroCustoFormatado e adiciona na listaCachaca
-    // imprime essa lista no campo do preço/litro (um por linha)
-    // console.log(nome + litroCusto)
+
+    // coloca coisa na listaCachaca
+    console.log('Lista: ', this.state.listaCachacas)
   }
 
   render() {
