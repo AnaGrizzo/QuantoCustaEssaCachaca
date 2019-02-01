@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { Text, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { Constants } from 'expo';
 import { Button } from 'react-native';
 
@@ -44,24 +44,14 @@ export default class App extends React.Component {
   }
 
   onPressCalcular = () => {
-    // junta o nome e o litroCustoFormatado
+    let parzinho = (this.state.nome + ': ' + this.litroCustoFormatado())
 
-    let coisa = (this.state.nome + this.litroCustoFormatado())
-    console.log('plzgod:', coisa)
-
-    console.log('Nome: ', this.state.nome)
-
-    console.log('LitroCustoFormatado: ', this.litroCustoFormatado())
-
-    // coloca coisa na listaCachaca
-    console.log('Lista: ', this.state.listaCachacas)
+    this.setState({listaCachacas: [...this.state.listaCachacas, parzinho]})
   }
 
   render() {
-    const {litroCusto} = this.state
-
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.paragraph}>
           Quanto custa essa cachaça?!
         </Text>
@@ -100,25 +90,21 @@ export default class App extends React.Component {
           title="Calcular!"
           color="#841584"
         />
-        {/* // Fazer o campo do preço receber vários valores e mostrar todos como uma lista */}
-        <Text>
+        <Text style={{marginTop: 10, fontSize: 20}}>
           O(s) preço(s) por litro dessa(s) cachaça(s) é(são):
         </Text>
-        <Card>
-          <Text style={{padding: 10, fontSize: 42}}>
-            LALALALLA
+        {this.state.listaCachacas && this.state.listaCachacas.map((parzinho, posicao) => (
+          <Text key={posicao} style={{paddingTop: 10}}>
+            {parzinho}
           </Text>
-        </Card>
-
-      </View>
+        ))}
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
     paddingTop: Constants.statusBarHeight,
     backgroundColor: '#ecf0f1',
     padding: 8,
