@@ -1,17 +1,22 @@
 {
   "expo": {
-    "name": "quanto_custa_essa_cachaca",
+    "name": "QCEC?",
     "description": "No description",
-    "slug": "snack-S1LFbcPfV",
+    "slug": "quanto_custa_essa_cachaca",
     "privacy": "unlisted",
     "sdkVersion": "31.0.0",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
-    "icon": "https://d1wp6m56sqw74a.cloudfront.net/~assets/c9aa1be8a6a6fe81e20c3ac4106a2ebc",
+    "icon": "./assets/cachaca_icon.png",
+    "splash": {
+      "image": "./assets/cachaca_icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#cccccc"
+    },
     "loading": {
-      "icon": "https://d1wp6m56sqw74a.cloudfront.net/~assets/c9aa1be8a6a6fe81e20c3ac4106a2ebc",
-      "hideExponentText": false
+      "icon": "./assets/cachaca_icon.png",
+      "hideExponentText": true
     },
     "packagerOpts": {
       "assetExts": [
@@ -23,7 +28,7 @@
     },
     "android": {
       "package": "app.anagrizzo.quanto_custa_essa_cachaca",
-      "versionCode": 1,
+      "versionCode": 2,
       "permissions": [
         "ACCESS_NETWORK_STATE",
         "INTERNET",
