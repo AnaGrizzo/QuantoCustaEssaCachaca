@@ -8,14 +8,14 @@
     "version": "0.0.2",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
-    "icon": "./assets/cachaca_icon.png",
+    "icon": "./assets/icons/cachaca_icon.png",
     "splash": {
-      "image": "./assets/cachaca_icon.png",
+      "image": "./assets/icons/cachaca_icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#cccccc"
     },
     "loading": {
-      "icon": "./assets/cachaca_icon.png",
+      "icon": "./assets/icons/cachaca_icon.png",
       "hideExponentText": true
     },
     "packagerOpts": {
