@@ -17,7 +17,7 @@ export default class App extends React.Component {
       bebidaMl: undefined,
       bebidaCusto: undefined,
       litroCusto: undefined,
-      listaCachacas: ['Brahma: R$ 123,09'],
+      listaCachacas: [],
       nomeComPreco: undefined
     };
   }
@@ -79,6 +79,7 @@ export default class App extends React.Component {
         <Card>
           <TextInput
             style={{height: 40}}
+            keyboardType="numeric"
             placeholder="Quantos ML tem?"
             onChangeText={this.handleQuantosMlChanged}
             value={this.state.bebidaMl}
@@ -90,6 +91,7 @@ export default class App extends React.Component {
         <Card>
           <TextInput
             style={{height: 40}}
+            keyboardType="numeric"
             placeholder="Quanto custa?"
             onChangeText={this.handleQuantoCustaChanged}
             value={this.state.bebidaCusto}
