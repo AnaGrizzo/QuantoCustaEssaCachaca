@@ -44,15 +44,16 @@ export default class App extends React.Component {
   }
 
   onPressCalcular = () => {
-    let parzinho = (this.state.nome + ': ' + this.litroCustoFormatado())
+    if (this.state.nome !== undefined && this.state.bebidaMl !== undefined && this.state.bebidaCusto !== undefined) {
+      let parzinho = (this.state.nome + ': ' + this.litroCustoFormatado())
 
-    this.setState({
-      listaCachacas: [...this.state.listaCachacas, parzinho],
-      nome: undefined,
-      bebidaMl: undefined,
-      bebidaCusto: undefined
-    })
-
+      this.setState({
+        listaCachacas: [...this.state.listaCachacas, parzinho],
+        nome: undefined,
+        bebidaMl: undefined,
+        bebidaCusto: undefined
+      })
+    }
   }
 
   render() {
