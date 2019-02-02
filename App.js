@@ -63,36 +63,36 @@ export default class App extends React.Component {
           Quanto custa essa cachaça?!
         </Text>
         <Text>
-          Qual é o nome dessa cachaça?
+          Qual é o nome dessa cachaça? (Ex: "Brahma")
         </Text>
         <Card>
           <TextInput
             style={{height: 40}}
-            placeholder="Nome da cachaça"
+            placeholder="Brahma"
             onChangeText={this.handleNomeDaCachacaChanged}
             value={this.state.nome}
           />
         </Card>
         <Text>
-          Quantos ml tem essa cachaça?
+          Quantos ml tem essa cachaça? (Ex: 350)
         </Text>
         <Card>
           <TextInput
             style={{height: 40}}
             keyboardType="numeric"
-            placeholder="Quantos ML tem?"
+            placeholder="350"
             onChangeText={this.handleQuantosMlChanged}
             value={this.state.bebidaMl}
           />
         </Card>
         <Text>
-          Quanto é essa cachaça?
+          Quanto é essa cachaça? (Ex: 1.99)
         </Text>
         <Card>
           <TextInput
             style={{height: 40}}
             keyboardType="numeric"
-            placeholder="Quanto custa?"
+            placeholder="1.99"
             onChangeText={this.handleQuantoCustaChanged}
             value={this.state.bebidaCusto}
           />
@@ -103,7 +103,7 @@ export default class App extends React.Component {
           color="#841584"
         />
         <Text style={{marginTop: 10, fontSize: 20}}>
-          O(s) preço(s) por litro dessa(s) cachaça(s) é(são):
+          R$/litro:
         </Text>
         {this.state.listaCachacas && this.state.listaCachacas.map((parzinho, posicao) => (
           <Text key={posicao} style={{paddingTop: 10}}>
