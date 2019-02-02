@@ -1,0 +1,36 @@
+App signing certificate
+
+ DOWNLOAD CERTIFICATE
+This is the public certificate for the app signing key that Google Play uses to sign your app before distributing it to Android devices. The app signing key itself is inaccessible and kept on a secure Google server. Use the certificate below to register your app signing key with your API providers.
+MD5 certificate fingerprint
+MD5: E4:AF:26:31:9A:5E:89:4F:58:63:9B:69:30:66:58:25
+
+SHA-1 certificate fingerprint
+SHA1: BB:A6:46:CC:98:9E:4F:C8:9E:FD:53:98:B7:4B:88:BE:66:40:34:96
+
+SHA-256 certificate fingerprint
+SHA256: 2B:8D:60:C0:85:6D:CD:45:34:1B:B5:2C:6A:1C:D9:19:0A:52:A7:A3:47:F7:C2:61:4D:7B:88:BA:C3:94:2B:04
+
+--
+
+
+Upload certificate
+
+ DOWNLOAD CERTIFICATE
+This is the public certificate for the upload key that you hold privately. Use your upload key to sign each release so that Google Play knows the release comes from you. Use the certificate below to register your app signing key with your API providers for app testing purposes.
+MD5 certificate fingerprint
+MD5: 1B:F6:9B:27:27:5E:C3:B1:74:CD:48:84:54:FB:9B:A2
+
+SHA-1 certificate fingerprint
+SHA1: DA:FD:EB:76:DE:86:E4:CD:B1:1D:F6:31:4D:88:A0:01:4B:82:88:65
+
+SHA-256 certificate fingerprint
+SHA256: 5D:6E:97:25:37:37:AA:11:2B:F6:C9:89:E8:5C:87:C9:E8:01:01:CD:E0:B6:E9:33:B1:F8:33:2
+
+--
+
+Upload failed
+You uploaded an APK that is not signed with the upload certificate. You must use the same certificate. The upload certificate has fingerprint:
+[ SHA1: DA:FD:EB:76:DE:86:E4:CD:B1:1D:F6:31:4D:88:A0:01:4B:82:88:65 ]
+and the certificate used to sign the APK you uploaded have fingerprint:
+[ SHA1: 98:28:38:06:D2:84:FE:ED:22:7D:9D:0C:DD:D9:94:84:84:7E:E8:74 ]
