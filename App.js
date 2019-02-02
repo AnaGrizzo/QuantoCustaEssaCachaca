@@ -46,7 +46,13 @@ export default class App extends React.Component {
   onPressCalcular = () => {
     let parzinho = (this.state.nome + ': ' + this.litroCustoFormatado())
 
-    this.setState({listaCachacas: [...this.state.listaCachacas, parzinho]})
+    this.setState({
+      listaCachacas: [...this.state.listaCachacas, parzinho],
+      nome: undefined,
+      bebidaMl: undefined,
+      bebidaCusto: undefined
+    })
+
   }
 
   render() {
@@ -63,6 +69,7 @@ export default class App extends React.Component {
             style={{height: 40}}
             placeholder="Nome da cachaça"
             onChangeText={this.handleNomeDaCachacaChanged}
+            value={this.state.nome}
           />
         </Card>
         <Text>
@@ -73,6 +80,7 @@ export default class App extends React.Component {
             style={{height: 40}}
             placeholder="Quantos ML tem?"
             onChangeText={this.handleQuantosMlChanged}
+            value={this.state.bebidaMl}
           />
         </Card>
         <Text>
@@ -83,6 +91,7 @@ export default class App extends React.Component {
             style={{height: 40}}
             placeholder="Quanto custa?"
             onChangeText={this.handleQuantoCustaChanged}
+            value={this.state.bebidaCusto}
           />
         </Card>
         <Button
