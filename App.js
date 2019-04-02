@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, ScrollView, StyleSheet, TextInput } from 'react-native';
+import { Text, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { Constants } from 'expo';
 import { Button } from 'react-native';
 
@@ -59,9 +59,11 @@ export default class App extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.paragraph}>
-          Quanto custa essa cachaça?!
-        </Text>
+        <View style={styles.header}>
+          <Text style={styles.titulo}>
+            Quanto custa essa cachaça?!
+          </Text>
+        </View>
         <Text>
           Qual é o nome dessa cachaça? (Ex: "Brahma")
         </Text>
@@ -100,7 +102,7 @@ export default class App extends React.Component {
         <Button
           onPress={this.onPressCalcular}
           title="Calcular!"
-          color="#841584"
+          color="#A50897"
         />
         <Text style={{marginTop: 10, fontSize: 20}}>
           R$/litro:
@@ -118,13 +120,18 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
+    backgroundColor: '#FDDE9E',
     padding: 8,
   },
-  paragraph: {
+  titulo: {
     margin: 24,
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: 'white'
   },
+  header: {
+    backgroundColor: '#A50897',
+    marginBottom: 24,
+  }
 });
