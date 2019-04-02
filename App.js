@@ -9,6 +9,9 @@ import AssetExample from './components/AssetExample';
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 
+import addOQEhNum from './helper/addOQEhNum'
+
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -24,9 +27,11 @@ export default class App extends React.Component {
 
   handleNomeDaCachacaChanged = text => this.setState({nome: text})
 
-  handleQuantosMlChanged = (text) => this.setState({bebidaMl: text}, this.updateLitroCusto)
+  handleQuantosMlChanged = (text) => {
+    this.setState({bebidaMl: addOQEhNum(text)}, this.updateLitroCusto)
+  }
 
-  handleQuantoCustaChanged = (text) => this.setState({bebidaCusto: text}, this.updateLitroCusto)
+  handleQuantoCustaChanged = (text) => this.setState({bebidaCusto: addOQEhNum(text)}, this.updateLitroCusto)
 
   updateLitroCusto = () => {
     if (!this.state.bebidaCusto || !this.state.bebidaMl || !this.state.nome) {
