@@ -10,6 +10,7 @@ import AssetExample from './components/AssetExample';
 import { Card } from 'react-native-paper';
 
 import addOQEhNum from './helper/addOQEhNum'
+import { addDecimal, decimalStringToFloat } from './helper/casasDecimais'
 
 
 export default class App extends React.Component {
@@ -31,11 +32,11 @@ export default class App extends React.Component {
     this.setState({bebidaMl: addOQEhNum(text)}, this.updateLitroCusto)
   }
 
-  handleQuantoCustaChanged = (text) => this.setState({bebidaCusto: addOQEhNum(text)}, this.updateLitroCusto)
+  handleQuantoCustaChanged = (text) => this.setState({bebidaCusto: decimalStringToFloat(addOQEhNum(text))}, this.updateLitroCusto)
 
   updateLitroCusto = () => {
     if (!this.state.bebidaCusto || !this.state.bebidaMl || !this.state.nome) {
-      return
+      return // colocar uma mensagem "preencha todos os campos"
     }
 
     this.setState({
