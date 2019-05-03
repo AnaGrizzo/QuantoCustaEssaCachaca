@@ -32,9 +32,20 @@ export default class App extends React.Component {
     this.setState({bebidaMl: addOQEhNum(text)}, this.updateLitroCusto)
   }
 
-  handleQuantoCustaChanged = (text) => this.setState({bebidaCusto: decimalStringToFloat(addOQEhNum(text))}, this.updateLitroCusto)
+  handleQuantoCustaChanged = (text) => {
+    console.log('handleQuantoCustaChanged', text)
+    let mutatedText = decimalStringToFloat(addOQEhNum(text))
+    // let mutatedText = addOQEhNum(text)
+    // let mutatedText = addDecimal(addOQEhNum(text))
+
+    // TODO: erro que não permite 0 (zero) no meio do valor, e.g: 10.50 => 1.5
+    // TODO: erro quando deleta todo o valor => fica NaN
+    this.setState({bebidaCusto: mutatedText}, this.updateLitroCusto)
+  }
 
   updateLitroCusto = () => {
+    console.log('updateLitroCusto: bebidaCusto', this.state.bebidaCusto)
+    console.log('updateLitroCusto: litroCusto', this.state.litroCusto)
     if (!this.state.bebidaCusto || !this.state.bebidaMl || !this.state.nome) {
       return // colocar uma mensagem "preencha todos os campos"
     }
@@ -45,11 +56,13 @@ export default class App extends React.Component {
   }
 
   litroCustoFormatado = () => {
+    console.log('litroCustoFormatado')
     // Retorna lista com o nome e custo do litro com somente N casas decimais à direita
     return 'R$ ' + parseFloat(this.state.litroCusto).toFixed(2);
   }
 
   onPressCalcular = () => {
+    console.log('chegou no onPressCalcular', this.state)
     if (this.state.nome !== undefined && this.state.bebidaMl !== undefined && this.state.bebidaCusto !== undefined) {
       let parzinho = (this.state.nome + ': ' + this.litroCustoFormatado())
 
@@ -63,6 +76,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log("método render", this.state.bebidaCusto)
     return (
       <ScrollView style={styles.container}>
         <View style={styles.header}>
@@ -94,9 +108,10 @@ export default class App extends React.Component {
           />
         </Card>
         <Text>
-          Quanto é essa cachaça? (Ex: 1.99)
+          Quanto é essa cachaça?
         </Text>
         <Card>
+          {/* TODO: colocar o R$ tipo: <Text>R$</Text> */}
           <TextInput
             style={{height: 40}}
             keyboardType="numeric"
