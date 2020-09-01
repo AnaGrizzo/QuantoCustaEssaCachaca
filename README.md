@@ -1,8 +1,6 @@
-# Sample Snack app
+# Quanto custa essa cachaça?
 
-Welcome to Expo!
-
-Atenção: este projeto está usando a versão 31.0.0 do expo SDK, e uma versão compatível do expo client deve ser utilizada no seu celular pra rodar o projeto.
+**Atenção:** este projeto está usando a versão 31.0.0 do expo SDK, e uma versão compatível do expo client deve ser utilizada no seu celular pra rodar o projeto.
 
 Este aplicativo foi gerado utilizando o Expo. Para mais informações sobre este framework, por favor utilize a documentacao oficial aqui: https://docs.expo.io/
 
